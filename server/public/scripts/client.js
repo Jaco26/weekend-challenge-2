@@ -57,6 +57,6 @@ function getCalculations(){
 
 }; // END getCalculations
 
-
+// start working on displaying the results
 
 
