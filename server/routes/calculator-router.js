@@ -11,15 +11,13 @@ router.get('/', function(req, res){
     console.log('The numbersArray in number-module.js is holding:', numbers);
 
     res.send(numberModule.getAllNumbers());
-});
+}); // END router.get
 
-router.post('/add', function(req, res){
+router.post('/add-to', function(req, res){
     let number = req.body.number;
-})
-
-
-
-
+    numberModule.addNumber(number);
+    res.sendStatus(200);
+}); // END router.post
 
 
 
