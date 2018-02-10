@@ -23,6 +23,7 @@ function getAllNumbers(){
         console.log('This is the data:',data);
         // call a function that puts the data on the DOM
         // someFunction(data);
+        displayResponse(data)
     }).fail(function(error){
         console.log(error);
     }); // END ajax
@@ -45,4 +46,13 @@ function submitNumber(){
 
 } // END submitNumber
 
+
+function displayResponse(array){
+    $('#output').empty();
+    let $ul = $('<ul>');
+    for(let number of array){
+        $ul.append($('<li>').text(number.number));
+    }
+    $('#output').append($ul);
+}
 

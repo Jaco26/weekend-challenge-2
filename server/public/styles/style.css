@@ -1,0 +1,32 @@
+.calculator {
+    width: 240px;
+}
+
+.number-buttons {
+    display: inline-block;
+    margin-bottom: 200px;
+    background: #b1cec3;
+    height: auto;
+    width: 150px;
+}
+
+.operation-buttons {
+    display: inline-block;
+    margin-bottom: 200px;
+    background: #b1cec3;
+    height: auto;
+    width: 80px;
+}
+
+.btn {
+    margin: 1px;
+    width: 30px;
+}
+
+#screen-interface {
+    display: inline-block;
+    border: solid black 1px;
+    height: 50px;
+    width: inherit;
+}
+

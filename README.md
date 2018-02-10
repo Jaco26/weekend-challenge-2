@@ -17,7 +17,7 @@ We are going to be building a calculator application using jQuery, Node, and Exp
 }
 ```
 
-- Once the server receives itm build out logic to compute the numbers in 1 of 4 different ways.
+- Once the server receives it, build out logic to compute the numbers in 1 of 4 different ways.
 - The server should be able to handle Addition, Subtraction, Multiplication, and Division. 
 - Once the calculation is complete, it should be sent back down to the client side app where it should be displayed on the DOM. 
 
