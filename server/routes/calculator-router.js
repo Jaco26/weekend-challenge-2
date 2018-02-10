@@ -3,11 +3,9 @@ const express = require('express');
 // store the value returned by the express.Router() method in const router
 const router = express.Router();
 
-// const calculationsModule = require('../modules/calculations-module');
 const formatForMath = require('../modules/format-array-for-math');
 
 router.get('/', function(req, res){
-
     let expressionArray = formatForMath.getFinalExpression;
     res.send(formatForMath.getFinalExpression());
 
@@ -16,6 +14,8 @@ router.get('/', function(req, res){
 
 router.post('/add-to', function(req, res){
     let array = req.body.calculationQueue;
+    console.log('In calculator-router, logging "array" from line 16:',array);
+    
     formatForMath.formatForMath(array);
     res.send(200);
 
