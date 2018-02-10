@@ -12,13 +12,13 @@ function formatForMath(arr){
     let numString = '';
     for(let i = 0; i < arr.length; i++){
         if (arr[i] === 'plus' || arr[i] === 'minus' || arr[i] === 'multiply' || arr[i] === 'divide'){
-            finalExpression.push(Number(numString));
+            finalExpression.push(parseFloat(numString));
             finalExpression.push(arr[i]);
             numString = '';
         } else {
             numString += arr[i];
             if (i === arr.length - 1){
-                finalExpression.push(Number(numString));
+                finalExpression.push(parseFloat(numString));
             }
         }
     }
