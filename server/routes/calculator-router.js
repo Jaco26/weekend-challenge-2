@@ -9,23 +9,14 @@ const calculationsModule = require('../modules/calculations-history');
 
 router.get('/', function(req, res){
     calculationsModule.addCalculation();
-    expressionModule.clearFinalExpression();
     res.send(calculationsModule.getAllCalculations());
-    console.log(expressionModule.getFinalExpression());
-    
 }); // END router.get
-
 
 router.post('/add-to', function(req, res){
     let array = req.body.calculationQueue;
-    console.log('In calculator-router, logging "array" from line 16:',array);
     expressionModule.formatForMath(array);
-    array = []; // clear it here too dude
     res.sendStatus(200);
-
 }); // END router.post
-
-
 
 module.exports = {
     router: router,

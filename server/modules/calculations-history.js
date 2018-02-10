@@ -7,9 +7,8 @@ const calculationsHistory = [];
 
 // add to calculationsHistory
 function addCalculation(){
-    //console.log('in calculations-history line 10: ', expressionModule.getFinalExpression());
-    calculationsHistory.push({calculation: expressionModule.getFinalExpression()});
-   // console.log('in calculations-history line 13: ',expressionModule.getFinalExpression());
+    calculationsHistory.push({expression: expressionModule.getFinalExpression(), result: expressionModule.getResult()});
+    expressionModule.clearFinalExpression();
 }
 
 // get all calculationsHistory contents

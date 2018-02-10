@@ -10,12 +10,12 @@ $(document).ready(function(){
     }); // END operation-btn onclick
     $('.equals-btn').on('click', function () {
         sendData(currentCalculationQueue); // send the equence of values for buttons pressed server-side for calculation
-        currentCalculationQueue = [] // f*** I hope this is the right place to empty the array
+        currentCalculationQueue = [] // IMPORTANT CLEAR currentCalculationQueue 
         $('#screen-interface').empty();
     }); // END equals-btn onclick
     $('.clear-btn').on('click', function(){
-        currentCalculationQueue = []; // empty the currentCalculationQueue;
-        $('#screen-interface').empty(); // clear the screen interface
+        currentCalculationQueue = []; // CLEAR the currentCalculationQueue;
+        $('#screen-interface').empty(); // CLEAR the screen interface
     }); // END clear-btn onclick
 
 }); // END document.ready

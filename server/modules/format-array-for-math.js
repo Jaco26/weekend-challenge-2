@@ -26,7 +26,6 @@ function formatForMath(arr){
 
 
 function getFinalExpression(){
-    console.log('in expressionModule line 29',finalExpression);
     return finalExpression;
 }
 
@@ -34,8 +33,13 @@ function clearFinalExpression(){
     finalExpression = [];
 }
 
+function getResult(){
+    return 'working on it...'
+}
+
 module.exports = {
     formatForMath: formatForMath,
     getFinalExpression: getFinalExpression,
+    getResult: getResult,
     clearFinalExpression: clearFinalExpression
 };
