@@ -1,11 +1,20 @@
 $(document).ready(function(){
    // getCalculations(); // load previous calculations stored on server when page loads
     let currentCalculationQueue = []; // store a sequence of values for buttons pressed
+    $(document).on('keydown', function(e){
+        if(e.key.match(/\d/) || e.key.match(/[-+/*]/)){
+            currentCalculationQueue.push(e.key);
+            if(e.key.match(/[+-/*]/)){
+                $('#screen-interface').append(' ' + e.key + ' ');
+            } else {
+                $('#screen-interface').append(e.key);
+            }
+        }
+    });
     $('.number-btn').on('click', function () {
         currentCalculationQueue.push($(this).attr('id'));
         $('#screen-interface').append($(this).attr('id'));
         console.log(currentCalculationQueue);
-        
     }); // END number-btn onclick
     $('.operation-btn').on('click', function () {
         currentCalculationQueue.push($(this).attr('id'));

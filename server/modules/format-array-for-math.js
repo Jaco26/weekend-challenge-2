@@ -35,7 +35,7 @@ function clearFinalExpression(){
 
 function getResult(arr){
     let evalVar = 0;
-    for(let i = 0; i < finalExpression.length; i++){
+    for(let i = 0; i < arr.length; i++){
         if (arr[i] === '+' && evalVar === 0){
             evalVar += (arr[i - 1] + arr[i + 1]);
         } else if (arr[i] === '-' && evalVar === 0){
