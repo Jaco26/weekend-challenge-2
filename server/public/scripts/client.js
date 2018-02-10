@@ -56,3 +56,4 @@ function displayResponse(array){
     $('#output').append($ul);
 }
 
+// in packageCalculatorInput
