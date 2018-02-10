@@ -3,21 +3,25 @@ const express = require('express');
 // store the value returned by the express.Router() method in const router
 const router = express.Router();
 
-const formatForMath = require('../modules/format-array-for-math');
+const expressionModule = require('../modules/format-array-for-math');
+const calculationsModule = require('../modules/calculations-history');
+
 
 router.get('/', function(req, res){
-    let expressionArray = formatForMath.getFinalExpression;
-    res.send(formatForMath.getFinalExpression());
-
+    calculationsModule.addCalculation();
+    expressionModule.clearFinalExpression();
+    res.send(calculationsModule.getAllCalculations());
+    console.log(expressionModule.getFinalExpression());
+    
 }); // END router.get
 
 
 router.post('/add-to', function(req, res){
     let array = req.body.calculationQueue;
     console.log('In calculator-router, logging "array" from line 16:',array);
-    
-    formatForMath.formatForMath(array);
-    res.send(200);
+    expressionModule.formatForMath(array);
+    array = []; // clear it here too dude
+    res.sendStatus(200);
 
 }); // END router.post
 

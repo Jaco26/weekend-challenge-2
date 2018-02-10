@@ -10,6 +10,7 @@ $(document).ready(function(){
     }); // END operation-btn onclick
     $('.equals-btn').on('click', function () {
         sendData(currentCalculationQueue); // send the equence of values for buttons pressed server-side for calculation
+        currentCalculationQueue = [] // f*** I hope this is the right place to empty the array
         $('#screen-interface').empty();
     }); // END equals-btn onclick
     $('.clear-btn').on('click', function(){
@@ -29,6 +30,7 @@ function sendData(toBeCalculated){
     }).done(function (response) {
         // run function to get finished calculation back
         // this function should display the most recent calculation on the screen-interface
+        toBeCalculated = []; // clear the f***ing array dude
         getCalculations();
         // then...clear currentCalculationQueue
         currentCalculationQueue = [];
