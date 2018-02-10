@@ -1,16 +1,18 @@
 $(document).ready(function(){
-    getCalculationRequirements()
+    sendCalculationRequirements()
+    
+    /*
     getAllNumbers();
-
     $('#number-in-btn').on('click', function(){
         submitNumber()
     }); // END #number-in-btn onclick
-
+    */
+   
 }); // END document.ready
 
 
 // get numbers and type of operation to be performed on them from DOM
-function getCalculationRequirements(){
+function sendCalculationRequirements(){
     let toBeCalculated = {
         calculationOrder: [],
     }
@@ -25,6 +27,17 @@ function getCalculationRequirements(){
 
     $('.equals-btn').on('click', function(){
         // POST...but for now just log something
+
+        $.ajax({
+            type: 'POST',
+            url: '/calculator/add-to',
+            data: toBeCalculated
+        }).done(function(response){
+            // run function to get finished calculation back
+        }).fail(function(error){
+            console.log(error);
+        }); // END ajax POST
+
         console.log(toBeCalculated);
         $('#screen-interface').empty();
         for (let item of toBeCalculated.calculationOrder){
