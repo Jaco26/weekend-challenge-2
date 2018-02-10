@@ -1,10 +1,13 @@
 const Number = require('./number-class');
+const formatForMath = require('../modules/format-array-for-math');
 
-const numbersArray = [
-    new Number(8),
-    new Number(40),
+const calculationsArray = [
+   
 ];
 
+
+
+/*
 function addNumber(number){
     numbersArray.push(new Number(number));
 }
@@ -12,6 +15,7 @@ function addNumber(number){
 function getAllNumbers(){
     return numbersArray;
 }
+*/
 
 module.exports = {
     addNumber: addNumber,

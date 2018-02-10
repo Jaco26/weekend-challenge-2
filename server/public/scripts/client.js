@@ -7,7 +7,7 @@ $(document).ready(function(){
         submitNumber()
     }); // END #number-in-btn onclick
     */
-   
+
 }); // END document.ready
 
 
@@ -27,42 +27,59 @@ function sendCalculationRequirements(){
 
     $('.equals-btn').on('click', function(){
         // POST...but for now just log something
-
         $.ajax({
             type: 'POST',
             url: '/calculator/add-to',
             data: toBeCalculated
         }).done(function(response){
             // run function to get finished calculation back
+            // this function should display the most recent calculation on the screen-interface
+            getCalculations();
+            // then...clear toBeCalculated.calculationOrder
+            toBeCalculated.calculationOrder = [];
         }).fail(function(error){
             console.log(error);
         }); // END ajax POST
-
-        console.log(toBeCalculated);
-        $('#screen-interface').empty();
-        for (let item of toBeCalculated.calculationOrder){
-            $('#screen-interface').append(item)
-        }
        
-        
-        // After a successful post, clear toBeCalculated.calculationOrder
-        toBeCalculated.calculationOrder = [];
-    })
-}
+         
+    }); // END equals-btn onclick
+
+} // END sendCalculationRequirements
 
 
+function getCalculations(){
+    $.ajax({
+        type: 'GET',
+        url: '/calculator'
+    }).done(function(response){
+        console.log('Request was successful!');
+        console.log(response);
+        // call some function that puts the response on the DOM
+
+    }).fail(function(error){
+        console.log(error); 
+    }); // END ajax GET
+
+}; // END getCalculations
+
+
+
+
+
+
+/*
 
 function getAllNumbers(){
 
     $.ajax({
         type: 'GET',
         url: '/calculator'
-    }).done(function(data){
+    }).done(function(response){
         console.log('request was successful!');
-        console.log('This is the data:',data);
+        console.log('This is the data:',response);
         // call a function that puts the data on the DOM
         // someFunction(data);
-        displayResponse(data)
+        displayResponse(response)
     }).fail(function(error){
         console.log(error);
     }); // END ajax
@@ -96,3 +113,5 @@ function displayResponse(array){
 }
 
 // in packageCalculatorInput
+
+*/
