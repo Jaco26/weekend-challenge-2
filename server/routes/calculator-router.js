@@ -11,25 +11,13 @@ router.get('/', function(req, res){
     let expressionArray = formatForMath.getFinalExpression;
     res.send(formatForMath.getFinalExpression());
 
-    /*
-    let numbers = numberModule.getAllNumbers;
-    console.log('The numbersArray in number-module.js is holding:', numbers);
-    res.send(numberModule.getAllNumbers());
-    */
-
 }); // END router.get
 
 
 router.post('/add-to', function(req, res){
-    let array = req.body.calculationOrder;
+    let array = req.body.calculationQueue;
     formatForMath.formatForMath(array);
     res.send(200);
-
-    /*
-    let number = req.body.number;
-    numberModule.addNumber(number);
-    res.sendStatus(200);
-    */
 
 }); // END router.post
 
