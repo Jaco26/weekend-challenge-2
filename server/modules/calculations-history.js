@@ -7,7 +7,8 @@ const calculationsHistory = [];
 
 // add to calculationsHistory
 function addCalculation(){
-    calculationsHistory.push({expression: expressionModule.getFinalExpression(), result: expressionModule.getResult()});
+    let array = expressionModule.getFinalExpression();
+    calculationsHistory.push({expression: expressionModule.getFinalExpression(), result: expressionModule.getResult(array)});
     expressionModule.clearFinalExpression();
 }
 

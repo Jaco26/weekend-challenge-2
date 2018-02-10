@@ -33,8 +33,28 @@ function clearFinalExpression(){
     finalExpression = [];
 }
 
-function getResult(){
-    return 'working on it...'
+function getResult(arr){
+    let evalVar = 0;
+    for(let i = 0; i < finalExpression.length; i++){
+        if (arr[i] === 'plus' && evalVar === 0){
+            evalVar += (arr[i - 1] + arr[i + 1]);
+        } else if (arr[i] === 'minus' && evalVar === 0){
+            evalVar += (arr[i - 1] - arr[i + 1]);
+        } else if (arr[i] === 'multiply' && evalVar === 0) {
+            evalVar += (arr[i - 1] * arr[i + 1]);
+        } else if (arr[i] === 'divide' && evalVar === 0) {
+            evalVar += (arr[i - 1] / arr[i + 1]);
+        } else if (arr[i] === 'plus' && evalVar !== 0) {
+            evalVar += arr[i + 1];
+        } else if (arr[i] === 'minus' && evalVar !== 0) {
+            evalVar -= arr[i + 1];
+        } else if (arr[i] === 'multiply' && evalVar !== 0) {
+            evalVar *= arr[i + 1];
+        } else if (arr[i] === 'divide' && evalVar !== 0) {
+            evalVar /= arr[i + 1];
+        } 
+    }
+    return evalVar;
 }
 
 module.exports = {
