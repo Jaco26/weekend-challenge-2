@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    getCalculationRequirements()
     getAllNumbers();
 
     $('#number-in-btn').on('click', function(){
@@ -8,10 +8,36 @@ $(document).ready(function(){
 
 }); // END document.ready
 
-function submitNumber(){
-    let number = $('#number-in').val();
 
-} // END submitNumber
+// get numbers and type of operation to be performed on them from DOM
+function getCalculationRequirements(){
+    let toBeCalculated = {
+        calculationOrder: [],
+    }
+
+    $('.number-btn').on('click', function(){
+        toBeCalculated.calculationOrder.push($(this).attr('id'));
+    });
+
+    $('.op-btn').on('click', function(){
+        toBeCalculated.calculationOrder.push($(this).attr('id'));
+    });
+
+    $('.equals-btn').on('click', function(){
+        // POST...but for now just log something
+        console.log(toBeCalculated);
+        $('#screen-interface').empty();
+        for (let item of toBeCalculated.calculationOrder){
+            $('#screen-interface').append(item)
+        }
+       
+        
+        // After a successful post, clear toBeCalculated.calculationOrder
+        toBeCalculated.calculationOrder = [];
+    })
+}
+
+
 
 function getAllNumbers(){
 
