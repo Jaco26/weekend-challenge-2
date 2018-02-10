@@ -58,10 +58,10 @@ function getCalculations(){
 }; // END getCalculations
 
 
-
 // this function will accept an array of previous calculations/results in their own objects objects and display their contents in the unordered list #previous-calculations (the most recent one will be in the #screen-interface)
 function displayResults(arr){
-
+    let $screen = $('#screen-interface');
+    let $ul = $('#previous-calulations');
 }
 
 
