@@ -11,7 +11,7 @@ let finalExpression = [];
 function formatForMath(arr){
     let numString = '';
     for(let i = 0; i < arr.length; i++){
-        if (arr[i] === 'plus' || arr[i] === 'minus' || arr[i] === 'multiply' || arr[i] === 'divide'){
+        if (arr[i] === '+' || arr[i] === '-' || arr[i] === '*' || arr[i] === '/'){
             finalExpression.push(parseFloat(numString));
             finalExpression.push(arr[i]);
             numString = '';
@@ -36,21 +36,21 @@ function clearFinalExpression(){
 function getResult(arr){
     let evalVar = 0;
     for(let i = 0; i < finalExpression.length; i++){
-        if (arr[i] === 'plus' && evalVar === 0){
+        if (arr[i] === '+' && evalVar === 0){
             evalVar += (arr[i - 1] + arr[i + 1]);
-        } else if (arr[i] === 'minus' && evalVar === 0){
+        } else if (arr[i] === '-' && evalVar === 0){
             evalVar += (arr[i - 1] - arr[i + 1]);
-        } else if (arr[i] === 'multiply' && evalVar === 0) {
+        } else if (arr[i] === '*' && evalVar === 0) {
             evalVar += (arr[i - 1] * arr[i + 1]);
-        } else if (arr[i] === 'divide' && evalVar === 0) {
+        } else if (arr[i] === '/' && evalVar === 0) {
             evalVar += (arr[i - 1] / arr[i + 1]);
-        } else if (arr[i] === 'plus' && evalVar !== 0) {
+        } else if (arr[i] === '+' && evalVar !== 0) {
             evalVar += arr[i + 1];
-        } else if (arr[i] === 'minus' && evalVar !== 0) {
+        } else if (arr[i] === '-' && evalVar !== 0) {
             evalVar -= arr[i + 1];
-        } else if (arr[i] === 'multiply' && evalVar !== 0) {
+        } else if (arr[i] === '*' && evalVar !== 0) {
             evalVar *= arr[i + 1];
-        } else if (arr[i] === 'divide' && evalVar !== 0) {
+        } else if (arr[i] === '/' && evalVar !== 0) {
             evalVar /= arr[i + 1];
         } 
     }
