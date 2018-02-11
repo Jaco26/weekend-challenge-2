@@ -3,7 +3,7 @@ const expressionModule = require('../modules/format-array-for-math');
 
 
 // store a history of all the calculations made. Each element in this array should be an object
-const calculationsHistory = []; 
+let calculationsHistory = []; 
 
 // add to calculationsHistory
 function addCalculation(){
@@ -17,8 +17,14 @@ function getAllCalculations(){
     return calculationsHistory;
 }
 
+function clearHistory(){
+    calculationsHistory = [];
+    return calculationsHistory;
+}
+
 // export functionality 
 module.exports = {
     addCalculation: addCalculation,
     getAllCalculations: getAllCalculations,
+    clearHistory: clearHistory,
 }

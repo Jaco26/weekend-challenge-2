@@ -18,6 +18,11 @@ router.post('/add-to', function(req, res){
     res.sendStatus(200);
 }); // END router.post
 
+router.delete('/delete', function(req, res){
+    calculationsModule.clearHistory()
+    res.send(calculationsModule.getAllCalculations());
+});
+
 module.exports = {
     router: router,
 }

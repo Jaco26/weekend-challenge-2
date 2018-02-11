@@ -68,6 +68,11 @@ $(document).ready(function(){
         }
     }); // END backspace-btn onclick
 
+    $('#clear-history').on('click', function(){
+        clearHistory();
+        
+    });
+
 }); // END document.ready
 
 
@@ -124,4 +129,18 @@ function displayResults(arr){
     }
 }
 
+function clearHistory(){
 
+    $.ajax({
+        method: 'DELETE',
+        url: '/calculator/delete',
+    }).done(function(response){
+        console.log(response);
+        displayResults(response);
+    }).fail(function(error){
+        console.log(error);
+        
+    }); // END ajax DELETE
+        
+        
+} // END clearHistory
