@@ -1,3 +1,9 @@
+.calculator {
+    display: block;
+    margin: 10px;
+    background-color: seashell;
+}
+
 
 .btn {
     background: linear-gradient(to bottom, #d6d6d6, #e6eceb);
@@ -38,5 +44,10 @@
 #screen-interface {
     display: block;
     background-color: #e8edf8;
+    border-radius: 3px;
+    max-width: 213px;
+    min-width: 213px;
+    height: 80px;
+    margin: 5px 0px;
 }
 
