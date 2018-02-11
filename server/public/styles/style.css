@@ -1,9 +1,38 @@
 
 .btn {
-    background: linear-gradient(to bottom, #c6d8d7, #e6eceb);
+    background: linear-gradient(to bottom, #d6d6d6, #e6eceb);
     margin: 3px;
 }
 
+.number-btn, .equals-btn  {
+    width: 45px;
+    margin-right: 5px
+}
+
+.equals-btn {
+    background: linear-gradient(to top, #f0efef, #f0eeee);
+    
+}
+
+.operation-btn {
+    width: 35px;
+    background: linear-gradient(to top, #a3a8a8, #afafaf);
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+#button-interface {
+    background: #696969;
+    padding: 5px 21px;
+    border-radius: 3px;
+    max-width: 213px;
+    min-width: 213px;
+}
+
+.clear-btn, .backspace-btn {
+    padding: 0rem 0.98rem;
+    color: #ff4848
+}
 
 
 #screen-interface {
