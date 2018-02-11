@@ -118,6 +118,7 @@ function getCalculations(){
 function displayResults(arr){
     let $ul = $('#previous-calculations');
     $ul.empty();
+    $('#screen-interface').append($('<p><strong>answer: </strong>'+(arr[arr.length - 1].expression.join(' ') + ' = ' + arr[arr.length - 1].result+'</p>')));
     for(let i = 0; i < arr.length; i++){
         $ul.prepend($('<li>').text(arr[i].expression.join(' ') + ' = ' + arr[i].result));    
     }

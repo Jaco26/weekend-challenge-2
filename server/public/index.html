@@ -12,52 +12,70 @@
 </head>
 <body>
 
-    
-    <div class="calculator">
-        
-        <section id="screen-interface">
+    <div class="container">
+        <div class="row content">
+            <div class="calculator col-6">
+                <div class="row">
+                    <section class="col-10" id="screen-interface">
+                        <p class="text-align-end">
+                            <strong>answer: </strong>
+                        </p>
+                    </section>
+                    <!-- END #screen-interface -->
+                </div>
+                <!-- END .row -->
+                <div class="row">
+                    <section class="col-12 p-0" id="button-interface">
+                        <div class="number-buttons">
+                            <button class="number-btn btn" id="9">9</button>
+                            <button class="number-btn btn" id="8">8</button>
+                            <button class="number-btn btn" id="7">7</button>
+                            <button class="number-btn btn" id="6">6</button>
+                            <button class="number-btn btn" id="5">5</button>
+                            <button class="number-btn btn" id="4">4</button>
+                            <button class="number-btn btn" id="3">3</button>
+                            <button class="number-btn btn" id="2">2</button>
+                            <button class="number-btn btn" id="1">1</button>
+                            <button class="number-btn btn" id="0">0</button>
+                            <button class="number-btn btn" id=".">.</button>
+                        </div>
+                        <!-- END .number-buttons -->
+                        <div class="operation-buttons">
+                            <button class="clear-btn btn">Clear</button>
+                            <button class="backspace-btn btn">Backspace</button>
+                            <button class="equals-btn btn">=</button>
 
-        </section> <!-- END #screen-interface -->
-
-        <section id="button-interface">
-            <div class="number-buttons">
-                <button class="number-btn btn" id="9">9</button>
-                <button class="number-btn btn" id="8">8</button>
-                <button class="number-btn btn" id="7">7</button>
-                <button class="number-btn btn" id="6">6</button>
-                <button class="number-btn btn" id="5">5</button>
-                <button class="number-btn btn" id="4">4</button>
-                <button class="number-btn btn" id="3">3</button>
-                <button class="number-btn btn" id="2">2</button>
-                <button class="number-btn btn" id="1">1</button>
-                <button class="number-btn btn" id="0">0</button>
-                <button class="number-btn btn" id=".">.</button>
-            </div> <!-- END .number-buttons -->
-            
-            <div class="operation-buttons">
-                <button class="clear-btn btn">Clear</button>
-                <button class="backspace-btn btn">Backspace</button>
-                <button class="equals-btn btn">=</button>
-
-                <button class="operation-btn btn" id="+">+</button>
-                <button class="operation-btn btn" id="-">-</button>
-                <button class="operation-btn btn" id="/">/</button>
-                <button class="operation-btn btn" id="*">*</button>
+                            <button class="operation-btn btn" id="+">+</button>
+                            <button class="operation-btn btn" id="-">-</button>
+                            <button class="operation-btn btn" id="/">/</button>
+                            <button class="operation-btn btn" id="*">*</button>
+                        </div>
+                        <!-- END .operation-buttons -->
+                    </section>
+                    <!-- END #button-interface -->
+                </div>
+                <!-- END .row -->
             </div>
-          
-        </section> <!-- END #button-interface -->
+            <!-- END .calculator -->
 
-        <section id="calculation-history">
-            <h1>Calculation History</h1>
-            <button id="clear-history">Clear history</button>
-            <ul id="previous-calculations">
-                
-            </ul>
-        </section> <!-- END # calculation-history -->
+            <div class="col-6">
+                <section id="calculation-history">
+                    <h1>Calculation History</h1>
+                    <button id="clear-history">Clear history</button>
+                    <ul class="list-unstyled" id="previous-calculations">
 
-      
-    </div> <!-- END .calculator -->
-
+                    </ul>
+                </section>
+                <!-- END # calculation-history -->
+            </div>
+            <!-- END .col -->
+        </div>
+        <!-- END .row -->
+        
+    </div>
+    <!-- END .container -->
+    
+   
    
 </body>
 </html>
