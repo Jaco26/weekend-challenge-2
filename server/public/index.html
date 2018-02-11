@@ -14,64 +14,55 @@
 
     <div class="container">
         <div class="row content">
-            <div class="calculator col-6">
-                <div class="row">
-                    <section class="col-10" id="screen-interface">
-                        <p class="text-align-end">
-                            <strong>answer: </strong>
-                        </p>
-                    </section>
-                    <!-- END #screen-interface -->
-                </div>
-                <!-- END .row -->
-                <div class="row">
-                    <section class="col-12 p-0" id="button-interface">
-                        <div class="number-buttons">
-                            <button class="number-btn btn" id="9">9</button>
-                            <button class="number-btn btn" id="8">8</button>
-                            <button class="number-btn btn" id="7">7</button>
-                            <button class="number-btn btn" id="6">6</button>
-                            <button class="number-btn btn" id="5">5</button>
-                            <button class="number-btn btn" id="4">4</button>
-                            <button class="number-btn btn" id="3">3</button>
-                            <button class="number-btn btn" id="2">2</button>
-                            <button class="number-btn btn" id="1">1</button>
-                            <button class="number-btn btn" id="0">0</button>
-                            <button class="number-btn btn" id=".">.</button>
-                        </div>
-                        <!-- END .number-buttons -->
-                        <div class="operation-buttons">
-                            <button class="clear-btn btn">Clear</button>
-                            <button class="backspace-btn btn">Backspace</button>
-                            <button class="equals-btn btn">=</button>
+            <div class="calculator col-12">
+                <section class="col-6" id="button-interface">
+                    <div class="number-buttons">
+                        <button class="number-btn btn" id="9">9</button>
+                        <button class="number-btn btn" id="8">8</button>
+                        <button class="number-btn btn" id="7">7</button>
+                        <button class="number-btn btn" id="6">6</button>
+                        <button class="number-btn btn" id="5">5</button>
+                        <button class="number-btn btn" id="4">4</button>
+                        <button class="number-btn btn" id="3">3</button>
+                        <button class="number-btn btn" id="2">2</button>
+                        <button class="number-btn btn" id="1">1</button>
+                        <button class="number-btn btn" id="0">0</button>
+                        <button class="number-btn btn" id=".">.</button>
+                    </div>
+                    <!-- END .number-buttons -->
+                    <div class="operation-buttons">
+                        <button class="clear-btn btn">Clear</button>
+                        <button class="backspace-btn btn">Backspace</button>
+                        <button class="equals-btn btn">=</button>
 
-                            <button class="operation-btn btn" id="+">+</button>
-                            <button class="operation-btn btn" id="-">-</button>
-                            <button class="operation-btn btn" id="/">/</button>
-                            <button class="operation-btn btn" id="*">*</button>
-                        </div>
-                        <!-- END .operation-buttons -->
-                    </section>
-                    <!-- END #button-interface -->
-                </div>
-                <!-- END .row -->
+                        <button class="operation-btn btn" id="+">+</button>
+                        <button class="operation-btn btn" id="-">-</button>
+                        <button class="operation-btn btn" id="/">/</button>
+                        <button class="operation-btn btn" id="*">*</button>
+                    </div>
+                    <!-- END .operation-buttons -->
+                </section>
+                <!-- END #button-interface -->
+            
+                <section class="col-6 d-block" id="screen-interface">
+                    <div id="current-calculation">
+
+                    </div>
+                    <!-- END # current-calculation -->
+                    <div id="calculation-history">
+                        <h1>Calculation History</h1>
+                        <button id="clear-history">Clear history</button>
+                        <ul class="list-unstyled" id="previous-calculations">
+
+                        </ul>
+                    </div>
+                    <!-- END # calculation-history -->
+                </section>
+                <!-- END #screen-interface -->
             </div>
             <!-- END .calculator -->
-
-            <div class="col-6">
-                <section id="calculation-history">
-                    <h1>Calculation History</h1>
-                    <button id="clear-history">Clear history</button>
-                    <ul class="list-unstyled" id="previous-calculations">
-
-                    </ul>
-                </section>
-                <!-- END # calculation-history -->
-            </div>
-            <!-- END .col -->
         </div>
-        <!-- END .row -->
-        
+        <!-- END .row .content -->
     </div>
     <!-- END .container -->
     

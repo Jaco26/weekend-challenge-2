@@ -1,7 +1,3 @@
-.content {
-   max-width: 500px;
-   min-width: 500px;
-}
 
 .btn {
     background: linear-gradient(to bottom, #c6d8d7, #e6eceb);
@@ -10,7 +6,6 @@
 
 #screen-interface {
     display: block;
-    height: 100px;
     background-color: #e8edf8;
 }
 
