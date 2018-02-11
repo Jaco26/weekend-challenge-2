@@ -14,8 +14,9 @@ $(document).ready(function(){
                 currentCalculationQueue.push(' ' + e.key + ' ');
             }
         } else if (e.key === 'Enter') {
-            let tester = currentCalculationQueue.filter(x => x.match(/-+\/*/));
-            if (currentCalculationQueue[currentCalculationQueue.length - 1].match(/-+\/*/) || tester.length === 0) {
+            let tester = currentCalculationQueue.filter(x => x.match(/[-+\/*]/));
+            console.log(tester);
+            if (currentCalculationQueue[currentCalculationQueue.length - 1].match(/[-+\/*]/) || tester.length === 0) {
                 alert('HEY! You are either ending you expression with a math operator (+ - * /) or you haven\'t included any at all!!!');
                 return false;
             } else {
@@ -48,7 +49,8 @@ $(document).ready(function(){
     }); // END operation-btn onclick
 
     $('.equals-btn').on('click', function () {
-        let tester = currentCalculationQueue.filter(x => x.match(/-+\/*/));
+        let tester = currentCalculationQueue.filter(x => x.match(/[-+\/*]/));
+        console.log(tester);
         if (currentCalculationQueue[currentCalculationQueue.length - 1].match(/[-+\/*]/) || tester.length === 0) {
             alert('HEY! You are either ending you expression with a math operator (+ - * /) or you haven\'t included any at all!!!');
             return false;
@@ -80,7 +82,6 @@ $(document).ready(function(){
 
 }); // END document.ready
 
-
 function sendData(toBeCalculated){
     $.ajax({
         type: 'POST',
@@ -96,7 +97,6 @@ function sendData(toBeCalculated){
     }); // END ajax POST
 }; // END equals-btn onclick
 
-
 function getCalculations(){
     $.ajax({
         type: 'GET',
@@ -108,9 +108,19 @@ function getCalculations(){
     }).fail(function(error){
         console.log(error); 
     }); // END ajax GET
-
 }; // END getCalculations
 
+function clearHistory() {
+    $.ajax({
+        type: 'DELETE',
+        url: '/calculator/delete',
+    }).done(function (response) {
+        console.log(response);
+        displayResults(response);
+    }).fail(function (error) {
+        console.log(error);
+    }); // END ajax DELETE        
+} // END clearHistory
 
 // this function will accept an array of previous calculations/results in their own objects objects and display their contents in the unordered list #previous-calculations (the most recent one will be in the #screen-interface)
 function displayResults(arr){
@@ -122,14 +132,3 @@ function displayResults(arr){
     }
 } // END displayResults
 
-function clearHistory(){
-    $.ajax({
-        type: 'DELETE',
-        url: '/calculator/delete',
-    }).done(function(response){
-        console.log(response);
-        displayResults(response);
-    }).fail(function(error){
-        console.log(error);   
-    }); // END ajax DELETE        
-} // END clearHistory
