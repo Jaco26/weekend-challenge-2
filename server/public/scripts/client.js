@@ -1,30 +1,49 @@
+
 $(document).ready(function(){
-   // getCalculations(); // load previous calculations stored on server when page loads
     let currentCalculationQueue = []; // store a sequence of values for buttons pressed
+   // getCalculations(); // load previous calculations stored on server when page loads
+    
     $(document).on('keydown', function(e){
-        if(e.key.match(/\d/) || e.key.match(/[-+/*]/)){
+        if (e.key.match(/\d/)) {
             currentCalculationQueue.push(e.key);
-            if(e.key.match(/[+-/*]/)){
-                $('#screen-interface').append(' ' + e.key + ' ');
+            $('#screen-interface').append(e.key);
+        } else if (e.key.match(/[+-/*]/)) {
+            if (currentCalculationQueue[currentCalculationQueue.length - 1].match(/[+-/*]/)){
+                return false;   
             } else {
-                $('#screen-interface').append(e.key);
+                $('#screen-interface').append(' ' + e.key + ' ');
+                currentCalculationQueue.push(' ' + e.key + ' ');
+            }
+        } else if (e.key === 'Enter') {
+            sendData(currentCalculationQueue); // send the equence of values for buttons pressed server-side for calculation
+            currentCalculationQueue = [] // IMPORTANT CLEAR currentCalculationQueue 
+            $('#screen-interface').empty();
+        } else if (e.key === 'Backspace') {
+            currentCalculationQueue.pop();
+            $('#screen-interface:last').empty();
+            for (let i = 0; i < currentCalculationQueue.length; i++) {
+                $('#screen-interface:last').append(currentCalculationQueue[i]);
             }
         }
-    });
+    }); // END document onkeydown
+
     $('.number-btn').on('click', function () {
         currentCalculationQueue.push($(this).attr('id'));
         $('#screen-interface').append($(this).attr('id'));
         console.log(currentCalculationQueue);
     }); // END number-btn onclick
+
     $('.operation-btn').on('click', function () {
         currentCalculationQueue.push($(this).attr('id'));
         $('#screen-interface').append(' ' + $(this).attr('id') + ' ');
     }); // END operation-btn onclick
+
     $('.equals-btn').on('click', function () {
         sendData(currentCalculationQueue); // send the equence of values for buttons pressed server-side for calculation
         currentCalculationQueue = [] // IMPORTANT CLEAR currentCalculationQueue 
         $('#screen-interface').empty();
     }); // END equals-btn onclick
+
     $('.clear-btn').on('click', function(){
         currentCalculationQueue = []; // CLEAR the currentCalculationQueue;
         $('#screen-interface').empty(); // CLEAR the screen interface
@@ -35,7 +54,7 @@ $(document).ready(function(){
 
 function sendData(toBeCalculated){
     let hasOperators = toBeCalculated.filter(function(x){
-        if(x === '+' || x === '-' || x === '*' || x === '/'){
+        if(x === ' + ' || x === ' - ' || x === ' * ' || x === ' / '){
             return x;
         }
     });
