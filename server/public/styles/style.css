@@ -1,11 +1,18 @@
+
+
 .calculator {
     display: block;
     margin: 10px;
-    background-color: seashell;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 0px;
+    background-color: #ffc917;
+    max-width: 223px;
+    max-height: 325;
+    border-radius: 2px;
 }
 
-
-.btn {
+.hey {
     background: linear-gradient(to bottom, #d6d6d6, #e6eceb);
     margin: 3px;
 }
@@ -37,7 +44,7 @@
 
 .clear-btn, .backspace-btn {
     padding: 0rem 0.98rem;
-    color: #ff4848
+    color: #beb4be;
 }
 
 
@@ -51,3 +58,27 @@
     margin: 5px 0px;
 }
 
+#calculation-history {
+    float: right;
+    display: block;
+    background: #c9c9c9;
+    max-width: 223px;
+    max-height: 325;
+    border-radius: 2px;
+    margin: 10px 0px;
+}
+
+#current-calculation {
+    display: block;
+    margin-bottom: 5px;
+    height: 50px;
+}
+
+#answer {
+    display: block;
+    height: 25px;
+}
+
+#clear-history {
+    display: block;
+}

@@ -3,7 +3,7 @@ $(document).ready(function(){
     let currentCalculationQueue = []; // store a sequence of values for buttons pressed
     
     $(document).on('keydown', function(e){
-        if (e.key.match(/\d/)) {
+        if (e.key.match(/\d|\./)) {
             currentCalculationQueue.push(e.key);
             $('#current-calculation').append(e.key);
         } else if (e.key.match(/[+-/*]/)) {
@@ -31,6 +31,8 @@ $(document).ready(function(){
                 $('#current-calculation').append(currentCalculationQueue[i]);
             }
         }
+        console.log(currentCalculationQueue);
+        
     }); // END document onkeydown
 
     $('.number-btn').on('click', function () {
@@ -64,6 +66,7 @@ $(document).ready(function(){
     $('.clear-btn').on('click', function(){
         currentCalculationQueue = []; // CLEAR the currentCalculationQueue;
         $('#current-calculation').empty(); // CLEAR the screen interface
+        $('#answer').html('<p><strong>result: </strong></p>')
     }); // END clear-btn onclick
 
     $('.backspace-btn').on('click', function(){
@@ -79,6 +82,10 @@ $(document).ready(function(){
             clearHistory();
         }
     }); // END clear-history onclick
+
+    $('.clear-btns').on('mouseenter', '.btn', function(){
+        $(this).css({'color':'darkgray'});
+    })
 
 }); // END document.ready
 
@@ -126,9 +133,10 @@ function clearHistory() {
 function displayResults(arr){
     let $ul = $('#previous-calculations');
     $ul.empty();
-    //$('#screen-interface').append($('<p><strong>answer: </strong>'+(arr[arr.length - 1].expression.join(' ') + ' = ' + arr[arr.length - 1].result+'</p>')));
-    for(let i = 0; i < arr.length; i++){
-        $ul.prepend($('<li>').text(arr[i].expression.join(' ') + ' = ' + arr[i].result));    
+    $('#answer').empty();
+    $('#answer').append('<p><strong>result: </strong>' + arr[arr.length - 1].result + '</p>');
+    for(let i = arr.length - 1; i >= 0; i--){
+        $ul.append($('<li>').text(arr[i].expression.join(' ') + ' = ' + arr[i].result)); 
     }
 } // END displayResults
 
