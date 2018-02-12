@@ -189,6 +189,7 @@ function clearHistory() {
     }).done(function (response) {
         console.log(response);
         displayResults(response);
+        //$('#answer').append('<p><strong>result:</strong></p>');
     }).fail(function (error) {
         console.log(error);
     }); // END ajax DELETE        
@@ -199,9 +200,14 @@ function displayResults(arr){
     let $ul = $('#previous-calculations');
     $ul.empty();
     $('#answer').empty();
-    $('#answer').append('<p><strong>result: </strong>' + arr[arr.length - 1].result + '</p>');
-    for(let i = 0; i < arr.length; i++){
-        $ul.prepend($('<li>').data('id', i).text(arr[i].expression.join(' ') + ' = ' + arr[i].result)); 
+    if (!arr[arr.length - 1]){
+        $('#answer').append('<p><strong>result:</strong></p>');
+    } else {
+        $('#answer').append('<p><strong>result: </strong>' + arr[arr.length - 1].result + '</p>');
+        for (let i = 0; i < arr.length; i++) {
+            $ul.prepend($('<li>').data('id', i).text(arr[i].expression.join(' ') + ' = ' + arr[i].result));
+        }
     }
+    
 } // END displayResults
 
