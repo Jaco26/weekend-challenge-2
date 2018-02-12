@@ -23,6 +23,16 @@ router.delete('/delete', function(req, res){
     res.send(calculationsModule.getAllCalculations());
 });
 
+router.get('/get-calculation', function(req, res){
+    res.send(calculationsModule.getSpecificCalculation());
+});
+
+router.post('/request-calculation', function(req, res){
+    let itemID = req.body.id;
+    calculationsModule.specifyCalculation(itemID);
+    res.sendStatus(200);
+});
+
 module.exports = {
     router: router,
 }

@@ -99,7 +99,48 @@ $(document).ready(function(){
         $(this).fadeTo(100, '1');
     });
 
-    
+    $('#previous-calculations').on('click', 'li', function(){
+        reRun($(this).data('id'));
+    });
+
+
+    function reRun(x) {
+        $.ajax({
+            type: 'POST',
+            url: '/calculator/request-calculation',
+            data: { id: x }
+        }).done(function (response) {
+            console.log(response);
+            getRequestedCalculation()
+        }).fail(function (error) {
+            console.log(error);
+        });
+    } // END reRun()
+
+
+    function getRequestedCalculation() {
+        $.ajax({
+            type: 'GET',
+            url: '/calculator/get-calculation'
+        }).done(function (response) {
+            console.log(response.expression.split(''));
+            for (let item of response.expression.split('')) {  
+                console.log(item);
+                if(item.match(/\s/)){
+                    continue;
+                } else if(item.match(/[-+\/*]/)){
+                    item = ' ' + item + ' ';
+                    currentCalculationQueue.push(item);
+                    $('#current-calculation').append(item);
+                } else {
+                    currentCalculationQueue.push(item);
+                    $('#current-calculation').append(item);
+                }
+            }
+        }).fail(function (error) {
+            console.log(error);
+        });
+    }
 
 }); // END document.ready
 
@@ -131,6 +172,8 @@ function getCalculations(){
     }); // END ajax GET
 }; // END getCalculations
 
+
+
 function clearHistory() {
     $.ajax({
         type: 'DELETE',
@@ -149,8 +192,8 @@ function displayResults(arr){
     $ul.empty();
     $('#answer').empty();
     $('#answer').append('<p><strong>result: </strong>' + arr[arr.length - 1].result + '</p>');
-    for(let i = arr.length - 1; i >= 0; i--){
-        $ul.append($('<li>').text(arr[i].expression.join(' ') + ' = ' + arr[i].result)); 
+    for(let i = 0; i < arr.length; i++){
+        $ul.prepend($('<li>').data('id', i).text(arr[i].expression.join(' ') + ' = ' + arr[i].result)); 
     }
 } // END displayResults
 
