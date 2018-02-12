@@ -99,6 +99,14 @@ $(document).ready(function(){
         $(this).fadeTo(100, '1');
     });
 
+    $('#previous-calculations').on('mouseenter', 'li', function(){
+        $(this).css({'background-color':'#eeeeee'});
+    });
+
+    $('#previous-calculations').on('mouseleave', 'li', function () {
+        $(this).css({'background-color': '#d8d8d8'});
+    });
+
     $('#previous-calculations').on('click', 'li', function(){
         reRun($(this).data('id'));
     });

@@ -69,6 +69,18 @@
     margin: 10px 0px;
 }
 
+#previous-calculations li {
+    display: block;
+    margin: 5px;
+    margin-top: 3px;
+    padding-left: 4px;
+    border-radius: 3px;
+}
+
+#previous-calculations li:hover {
+    cursor: pointer;
+}
+
 #current-calculation {
     display: block;
     margin-bottom: 5px;
