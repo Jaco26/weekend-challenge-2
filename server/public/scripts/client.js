@@ -84,8 +84,22 @@ $(document).ready(function(){
     }); // END clear-history onclick
 
     $('.clear-btns').on('mouseenter', '.btn', function(){
-        $(this).css({'color':'darkgray'});
-    })
+        $(this).css({ 'color':'#7b007b'});
+    });
+
+    $('.clear-btns').on('mouseleave', '.btn', function () {
+        $(this).css({ 'color': '#9e7d9e' });
+    });
+
+    $('.btn').on('mouseenter', function(){
+        $(this).fadeTo(100, '0.8');
+    });
+
+    $('.btn').on('mouseleave', function () {
+        $(this).fadeTo(100, '1');
+    });
+
+    
 
 }); // END document.ready
 

@@ -44,7 +44,7 @@
 
 .clear-btn, .backspace-btn {
     padding: 0rem 0.98rem;
-    color: #beb4be;
+    color: #9e7d9e;
 }
 
 
@@ -61,8 +61,9 @@
 #calculation-history {
     float: right;
     display: block;
-    background: #c9c9c9;
+    background: #d8d8d8;
     max-width: 223px;
+    min-width: 213px;
     max-height: 325;
     border-radius: 2px;
     margin: 10px 0px;
@@ -81,4 +82,13 @@
 
 #clear-history {
     display: block;
+}
+
+.directions {
+    background: #ddffdd;
+    max-width: 456px;
+    margin-left: -5px;
+    height: 100px;
+    padding-left: 6px;
+    border-radius: 3px;
 }
