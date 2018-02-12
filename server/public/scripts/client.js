@@ -15,7 +15,7 @@ $(document).ready(function(){
             }
         } else if (e.key === 'Enter') {
             let tester = currentCalculationQueue.filter(x => x.match(/[-+\/*]/));
-            console.log(tester);
+//                console.log(tester);
             if (currentCalculationQueue[currentCalculationQueue.length - 1].match(/[-+\/*]/) || tester.length === 0) {
                 alert('HEY! You are either ending you expression with a math operator (+ - * /) or you haven\'t included any at all!!!');
                 return false;
@@ -31,14 +31,14 @@ $(document).ready(function(){
                 $('#current-calculation').append(currentCalculationQueue[i]);
             }
         }
-        console.log(currentCalculationQueue);
+        // console.log(currentCalculationQueue);
         
     }); // END document onkeydown
 
     $('.number-btn').on('click', function () {
         currentCalculationQueue.push($(this).attr('id'));
         $('#current-calculation').append($(this).attr('id'));
-        console.log(currentCalculationQueue);
+//        console.log(currentCalculationQueue);
     }); // END number-btn onclick
 
     $('.operation-btn').on('click', function () {
@@ -52,7 +52,7 @@ $(document).ready(function(){
 
     $('.equals-btn').on('click', function () {
         let tester = currentCalculationQueue.filter(x => x.match(/[-+\/*]/));
-        console.log(tester);
+//        console.log(tester);
         if (currentCalculationQueue[currentCalculationQueue.length - 1].match(/[-+\/*]/) || tester.length === 0) {
             alert('HEY! You are either ending you expression with a math operator (+ - * /) or you haven\'t included any at all!!!');
             return false;
@@ -118,10 +118,10 @@ $(document).ready(function(){
             url: '/calculator/request-calculation',
             data: { id: x }
         }).done(function (response) {
-            console.log(response);
+//            console.log(response);
             getRequestedCalculation()
         }).fail(function (error) {
-            console.log(error);
+//            console.log(error);
         });
     } // END reRun()
 
@@ -131,9 +131,9 @@ $(document).ready(function(){
             type: 'GET',
             url: '/calculator/get-calculation'
         }).done(function (response) {
-            console.log(response.expression.split(''));
+//           console.log(response.expression.split(''));
             for (let item of response.expression.split('')) {  
-                console.log(item);
+//               console.log(item);
                 if(item.match(/\s/)){
                     continue;
                 } else if(item.match(/[-+\/*]/)){
@@ -146,7 +146,7 @@ $(document).ready(function(){
                 }
             }
         }).fail(function (error) {
-            console.log(error);
+//            console.log(error);
         });
     }
 
@@ -163,7 +163,7 @@ function sendData(toBeCalculated){
         // then...clear currentCalculationQueue
         toBeCalculated = [];
     }).fail(function (error) {
-        console.log(error);
+//        console.log(error);
     }); // END ajax POST
 }; // END equals-btn onclick
 
@@ -172,11 +172,11 @@ function getCalculations(){
         type: 'GET',
         url: '/calculator'
     }).done(function(response){
-        console.log('Request was successful!');
-        console.log(response);
+//        console.log('Request was successful!');
+//        console.log(response);
         displayResults(response); // display response on the DOM
     }).fail(function(error){
-        console.log(error); 
+//        console.log(error); 
     }); // END ajax GET
 }; // END getCalculations
 
@@ -187,11 +187,11 @@ function clearHistory() {
         type: 'DELETE',
         url: '/calculator/delete',
     }).done(function (response) {
-        console.log(response);
+//        console.log(response);
         displayResults(response);
         //$('#answer').append('<p><strong>result:</strong></p>');
     }).fail(function (error) {
-        console.log(error);
+//       console.log(error);
     }); // END ajax DELETE        
 } // END clearHistory
 
